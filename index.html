@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+<div class="main-body">
+  <div class="input-box">
+      <div class="input-container">
+          <p class="input">
+          </p>
+          <p class="input history">
+          </p>
+      </div>
+  </div>
+    <div class="argument-box">
+        <input type="button" class="num" value="7" onclick="myfunction(this)" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+        <input type="button" class="num" value="8" onclick="myfunction(this)" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+        <input type="button" class="num" value="9" onclick="myfunction(this)" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+        <input type="button" class="num" value="4" onclick="myfunction(this)" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+        <input type="button" class="num" value="5" onclick="myfunction(this)" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+        <input type="button" class="num" value="6" onclick="myfunction(this)" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+        <input type="button" class="num" value="1" onclick="myfunction(this)" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+        <input type="button" class="num" value="2" onclick="myfunction(this)" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+        <input type="button" class="num" value="3" onclick="myfunction(this)" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+        <input type="button" class="num zero" value="0" onclick="myfunction(this)" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+        <input type="button" class="num decimal" value="." onclick="myfunction(this)" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+        <input type="button" class="num product" value="*" onclick="myfunction(this)" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+        <input type="button" class="num divide" value="/" onclick="myfunction(this)" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+    </div>
+    <div class="operators">
+        <input type="button" class="num add" value="+" onclick="myfunction(this)" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+        <input type="button" class="num add" value="-" onclick="myfunction(this)" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+        <input type="button" class="num add on" value="AC/ON" onclick="clearinput()" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+        <input type="button" class="num equal" value="=" onclick="solve()" onmousedown="pressed(this)" onmouseup="unpressed(this)">
+    </div>
+</div>
+<div class="madeBY">
+    <h1 class="heading">JAVASCRIPT <br>CALCULATOR</h1>
+    <p class="credit">Made By: <span>Vishal Raghav</span></p>
+</div>
+</body>
+<script>
+    var on = false;
+    var flag = 0;
+    var a = document.getElementsByClassName("input");
+        function pressed(obj) {
+            obj.style.boxShadow = "0 2px 3px 0 rgba(0,0,0,0.4)";
+        }
+
+        function unpressed(obj) {
+            obj.style.boxShadow = "0 4px 8px 0 rgba(0,0,0,0.4)";
+        }
+
+        function myfunction(obj) {
+            if(on) {
+                if (flag == 0) {
+                    a[0].innerHTML = "";
+                    flag = 1;
+                }
+                if((b[0].innerHTML!="")&&(a[0].innerHTML=="")&&(/[0-9]/.test(obj.value)))
+                    b[0].innerHTML="";
+                a[0].innerHTML += obj.value;
+            }
+        }
+    var b = document.getElementsByClassName("history");
+    b[0].innerHTML="";
+        function solve() {
+            var str = b[0].innerHTML+a[0].innerHTML;
+            var value = eval(str);
+            value = value.toFixed(13);
+            value = parseFloat(value);
+            a[0].innerHTML = "";
+            b[0].innerHTML = value;
+    }
+    function clearinput(){
+        a[0].innerHTML = "0";
+        b[0].innerHTML = "";
+        flag=0;
+        on = true;
+    }
+
+
+</script>
+</html>
